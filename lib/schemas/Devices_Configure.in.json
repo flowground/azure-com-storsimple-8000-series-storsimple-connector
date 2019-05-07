@@ -1,0 +1,117 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The mandatory device configuration request.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the configure device request.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "currentDeviceName": {
+                            "description": "The current name of the device.",
+                            "type": "string"
+                        },
+                        "dnsSettings": {
+                            "description": "The secondary DNS Settings of the device.",
+                            "properties": {
+                                "secondaryDnsServers": {
+                                    "description": "The list of secondary DNS Server IP addresses.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "friendlyName": {
+                            "description": "The friendly name for the device.",
+                            "type": "string"
+                        },
+                        "networkInterfaceData0Settings": {
+                            "description": "The 'Data 0' network interface card settings.",
+                            "properties": {
+                                "controllerOneIp": {
+                                    "description": "The controller 1's IPv4 address.",
+                                    "type": "string"
+                                },
+                                "controllerZeroIp": {
+                                    "description": "The controller 0's IPv4 address.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "timeZone": {
+                            "description": "The device time zone. For eg: \"Pacific Standard Time\"",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "friendlyName",
+                        "currentDeviceName",
+                        "timeZone"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

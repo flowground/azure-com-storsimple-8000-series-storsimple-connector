@@ -1,0 +1,146 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "hardwareComponentGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The controller power state change request.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the controller power state change request.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "action": {
+                            "description": "The power state that the request is expecting for the controller of the device.",
+                            "enum": [
+                                "Start",
+                                "Restart",
+                                "Shutdown"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ControllerPowerStateAction"
+                            }
+                        },
+                        "activeController": {
+                            "description": "The active controller that the request is expecting on the device.",
+                            "enum": [
+                                "Unknown",
+                                "None",
+                                "Controller0",
+                                "Controller1"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ControllerId"
+                            }
+                        },
+                        "controller0State": {
+                            "description": "The controller 0's status that the request is expecting on the device.",
+                            "enum": [
+                                "NotPresent",
+                                "PoweredOff",
+                                "Ok",
+                                "Recovering",
+                                "Warning",
+                                "Failure"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ControllerStatus"
+                            }
+                        },
+                        "controller1State": {
+                            "description": "The controller 1's status that the request is expecting on the device.",
+                            "enum": [
+                                "NotPresent",
+                                "PoweredOff",
+                                "Ok",
+                                "Recovering",
+                                "Warning",
+                                "Failure"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ControllerStatus"
+                            }
+                        }
+                    },
+                    "required": [
+                        "action",
+                        "activeController",
+                        "controller0State",
+                        "controller1State"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

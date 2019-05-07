@@ -1,0 +1,191 @@
+{
+    "type": "object",
+    "properties": {
+        "bandwidthSettingName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The bandwidth setting.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the bandwidth setting.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "schedules": {
+                            "description": "The schedules.",
+                            "items": {
+                                "description": "The schedule for bandwidth setting.",
+                                "properties": {
+                                    "days": {
+                                        "description": "The days of the week when this schedule is applicable.",
+                                        "items": {
+                                            "enum": [
+                                                "Sunday",
+                                                "Monday",
+                                                "Tuesday",
+                                                "Wednesday",
+                                                "Thursday",
+                                                "Friday",
+                                                "Saturday"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "DayOfWeek"
+                                            }
+                                        },
+                                        "type": "array"
+                                    },
+                                    "rateInMbps": {
+                                        "description": "The rate in Mbps.",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "start": {
+                                        "description": "The start time of the schedule.",
+                                        "properties": {
+                                            "hours": {
+                                                "description": "The hour.",
+                                                "format": "int32",
+                                                "maximum": 23,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            },
+                                            "minutes": {
+                                                "description": "The minute.",
+                                                "format": "int32",
+                                                "maximum": 59,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            },
+                                            "seconds": {
+                                                "description": "The second.",
+                                                "format": "int32",
+                                                "maximum": 59,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "hours",
+                                            "minutes",
+                                            "seconds"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "stop": {
+                                        "description": "The stop time of the schedule.",
+                                        "properties": {
+                                            "hours": {
+                                                "description": "The hour.",
+                                                "format": "int32",
+                                                "maximum": 23,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            },
+                                            "minutes": {
+                                                "description": "The minute.",
+                                                "format": "int32",
+                                                "maximum": 59,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            },
+                                            "seconds": {
+                                                "description": "The second.",
+                                                "format": "int32",
+                                                "maximum": 59,
+                                                "minimum": 0,
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "hours",
+                                            "minutes",
+                                            "seconds"
+                                        ],
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "start",
+                                    "stop",
+                                    "rateInMbps",
+                                    "days"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "volumeCount": {
+                            "description": "The number of volumes that uses the bandwidth setting.",
+                            "format": "int32",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "schedules"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

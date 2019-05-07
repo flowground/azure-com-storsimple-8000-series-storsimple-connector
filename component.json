@@ -1,0 +1,1613 @@
+{
+    "title": "StorSimple8000SeriesManagementClient",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/storsimple8000series-storsimple/2017-06-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available REST API operations of the Microsoft.StorSimple provider",
+            "description": "Lists all of the available REST API operations of the Microsoft.StorSimple provider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_List": {
+            "main": "./lib/actions/Managers_List.js",
+            "title": "Retrieves all the managers in a subscription.",
+            "description": "Retrieves all the managers in a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_ListByResourceGroup": {
+            "main": "./lib/actions/Managers_ListByResourceGroup.js",
+            "title": "Retrieves all the managers in a resource group.",
+            "description": "Retrieves all the managers in a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_Delete": {
+            "main": "./lib/actions/Managers_Delete.js",
+            "title": "Deletes the manager.",
+            "description": "Deletes the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_Get": {
+            "main": "./lib/actions/Managers_Get.js",
+            "title": "Returns the properties of the specified manager name.",
+            "description": "Returns the properties of the specified manager name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_Update": {
+            "main": "./lib/actions/Managers_Update.js",
+            "title": "Updates the StorSimple Manager.",
+            "description": "Updates the StorSimple Manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_CreateOrUpdate": {
+            "main": "./lib/actions/Managers_CreateOrUpdate.js",
+            "title": "Creates or updates the manager.",
+            "description": "Creates or updates the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AccessControlRecords_ListByManager": {
+            "main": "./lib/actions/AccessControlRecords_ListByManager.js",
+            "title": "Retrieves all the access control records in a manager.",
+            "description": "Retrieves all the access control records in a manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AccessControlRecords_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AccessControlRecords_Delete": {
+            "main": "./lib/actions/AccessControlRecords_Delete.js",
+            "title": "Deletes the access control record.",
+            "description": "Deletes the access control record.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AccessControlRecords_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AccessControlRecords_Get": {
+            "main": "./lib/actions/AccessControlRecords_Get.js",
+            "title": "Returns the properties of the specified access control record name.",
+            "description": "Returns the properties of the specified access control record name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AccessControlRecords_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AccessControlRecords_CreateOrUpdate": {
+            "main": "./lib/actions/AccessControlRecords_CreateOrUpdate.js",
+            "title": "Creates or Updates an access control record.",
+            "description": "Creates or Updates an access control record.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AccessControlRecords_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Alerts_ListByManager": {
+            "main": "./lib/actions/Alerts_ListByManager.js",
+            "title": "Retrieves all the alerts in a manager.",
+            "description": "Retrieves all the alerts in a manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Alerts_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BandwidthSettings_ListByManager": {
+            "main": "./lib/actions/BandwidthSettings_ListByManager.js",
+            "title": "Retrieves all the bandwidth setting in a manager.",
+            "description": "Retrieves all the bandwidth setting in a manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BandwidthSettings_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BandwidthSettings_Delete": {
+            "main": "./lib/actions/BandwidthSettings_Delete.js",
+            "title": "Deletes the bandwidth setting",
+            "description": "Deletes the bandwidth setting",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BandwidthSettings_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BandwidthSettings_Get": {
+            "main": "./lib/actions/BandwidthSettings_Get.js",
+            "title": "Returns the properties of the specified bandwidth setting name.",
+            "description": "Returns the properties of the specified bandwidth setting name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BandwidthSettings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BandwidthSettings_CreateOrUpdate": {
+            "main": "./lib/actions/BandwidthSettings_CreateOrUpdate.js",
+            "title": "Creates or updates the bandwidth setting",
+            "description": "Creates or updates the bandwidth setting",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BandwidthSettings_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Alerts_Clear": {
+            "main": "./lib/actions/Alerts_Clear.js",
+            "title": "Clear the alerts.",
+            "description": "Clear the alerts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Alerts_Clear.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudAppliances_ListSupportedConfigurations": {
+            "main": "./lib/actions/CloudAppliances_ListSupportedConfigurations.js",
+            "title": "Lists supported cloud appliance models and supported configurations.",
+            "description": "Lists supported cloud appliance models and supported configurations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudAppliances_ListSupportedConfigurations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Configure": {
+            "main": "./lib/actions/Devices_Configure.js",
+            "title": "Complete minimal setup before using the device.",
+            "description": "Complete minimal setup before using the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Configure.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ListByManager": {
+            "main": "./lib/actions/Devices_ListByManager.js",
+            "title": "Returns the list of devices for the specified manager.",
+            "description": "Returns the list of devices for the specified manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Delete": {
+            "main": "./lib/actions/Devices_Delete.js",
+            "title": "Deletes the device.",
+            "description": "Deletes the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Get": {
+            "main": "./lib/actions/Devices_Get.js",
+            "title": "Returns the properties of the specified device.",
+            "description": "Returns the properties of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Update": {
+            "main": "./lib/actions/Devices_Update.js",
+            "title": "Patches the device.",
+            "description": "Patches the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_GetAlertSettings": {
+            "main": "./lib/actions/DeviceSettings_GetAlertSettings.js",
+            "title": "Gets the alert settings of the specified device.",
+            "description": "Gets the alert settings of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_GetAlertSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_CreateOrUpdateAlertSettings": {
+            "main": "./lib/actions/DeviceSettings_CreateOrUpdateAlertSettings.js",
+            "title": "Creates or updates the alert settings of the specified device.",
+            "description": "Creates or updates the alert settings of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_CreateOrUpdateAlertSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_AuthorizeForServiceEncryptionKeyRollover": {
+            "main": "./lib/actions/Devices_AuthorizeForServiceEncryptionKeyRollover.js",
+            "title": "Authorizes the specified device for service data encryption key rollover.",
+            "description": "Authorizes the specified device for service data encryption key rollover.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_AuthorizeForServiceEncryptionKeyRollover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupPolicies_ListByDevice": {
+            "main": "./lib/actions/BackupPolicies_ListByDevice.js",
+            "title": "Gets all the backup policies in a device.",
+            "description": "Gets all the backup policies in a device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupPolicies_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupPolicies_Delete": {
+            "main": "./lib/actions/BackupPolicies_Delete.js",
+            "title": "Deletes the backup policy.",
+            "description": "Deletes the backup policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupPolicies_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupPolicies_Get": {
+            "main": "./lib/actions/BackupPolicies_Get.js",
+            "title": "Gets the properties of the specified backup policy name.",
+            "description": "Gets the properties of the specified backup policy name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupPolicies_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupPolicies_CreateOrUpdate": {
+            "main": "./lib/actions/BackupPolicies_CreateOrUpdate.js",
+            "title": "Creates or updates the backup policy.",
+            "description": "Creates or updates the backup policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupPolicies_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupPolicies_BackupNow": {
+            "main": "./lib/actions/BackupPolicies_BackupNow.js",
+            "title": "Backup the backup policy now.",
+            "description": "Backup the backup policy now.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupPolicies_BackupNow.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupSchedules_ListByBackupPolicy": {
+            "main": "./lib/actions/BackupSchedules_ListByBackupPolicy.js",
+            "title": "Gets all the backup schedules in a backup policy.",
+            "description": "Gets all the backup schedules in a backup policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupSchedules_ListByBackupPolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupSchedules_Delete": {
+            "main": "./lib/actions/BackupSchedules_Delete.js",
+            "title": "Deletes the backup schedule.",
+            "description": "Deletes the backup schedule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupSchedules_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupSchedules_Get": {
+            "main": "./lib/actions/BackupSchedules_Get.js",
+            "title": "Gets the properties of the specified backup schedule name.",
+            "description": "Gets the properties of the specified backup schedule name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupSchedules_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupSchedules_CreateOrUpdate": {
+            "main": "./lib/actions/BackupSchedules_CreateOrUpdate.js",
+            "title": "Creates or updates the backup schedule.",
+            "description": "Creates or updates the backup schedule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupSchedules_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Backups_ListByDevice": {
+            "main": "./lib/actions/Backups_ListByDevice.js",
+            "title": "Retrieves all the backups in a device.",
+            "description": "Retrieves all the backups in a device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Backups_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Backups_Delete": {
+            "main": "./lib/actions/Backups_Delete.js",
+            "title": "Deletes the backup.",
+            "description": "Deletes the backup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Backups_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Backups_Clone": {
+            "main": "./lib/actions/Backups_Clone.js",
+            "title": "Clones the backup element as a new volume.",
+            "description": "Clones the backup element as a new volume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Backups_Clone.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Backups_Restore": {
+            "main": "./lib/actions/Backups_Restore.js",
+            "title": "Restores the backup on the device.",
+            "description": "Restores the backup on the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Backups_Restore.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Deactivate": {
+            "main": "./lib/actions/Devices_Deactivate.js",
+            "title": "Deactivates the device.",
+            "description": "Deactivates the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Deactivate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "HardwareComponentGroups_ListByDevice": {
+            "main": "./lib/actions/HardwareComponentGroups_ListByDevice.js",
+            "title": "Lists the hardware component groups at device-level.",
+            "description": "Lists the hardware component groups at device-level.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/HardwareComponentGroups_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "HardwareComponentGroups_ChangeControllerPowerState": {
+            "main": "./lib/actions/HardwareComponentGroups_ChangeControllerPowerState.js",
+            "title": "Changes the power state of the controller.",
+            "description": "Changes the power state of the controller.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/HardwareComponentGroups_ChangeControllerPowerState.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_InstallUpdates": {
+            "main": "./lib/actions/Devices_InstallUpdates.js",
+            "title": "Downloads and installs the updates on the device.",
+            "description": "Downloads and installs the updates on the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_InstallUpdates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Jobs_ListByDevice": {
+            "main": "./lib/actions/Jobs_ListByDevice.js",
+            "title": "Gets all the jobs for specified device. With optional OData query parameters, a filtered set of jobs is returned.",
+            "description": "Gets all the jobs for specified device. With optional OData query parameters, a filtered set of jobs is returned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Jobs_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Jobs_Get": {
+            "main": "./lib/actions/Jobs_Get.js",
+            "title": "Gets the details of the specified job name.",
+            "description": "Gets the details of the specified job name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Jobs_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Jobs_Cancel": {
+            "main": "./lib/actions/Jobs_Cancel.js",
+            "title": "Cancels a job on the device.",
+            "description": "Cancels a job on the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Jobs_Cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ListFailoverSets": {
+            "main": "./lib/actions/Devices_ListFailoverSets.js",
+            "title": "Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.",
+            "description": "Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ListFailoverSets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ListMetrics": {
+            "main": "./lib/actions/Devices_ListMetrics.js",
+            "title": "Gets the metrics for the specified device.",
+            "description": "Gets the metrics for the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ListMetrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ListMetricDefinition": {
+            "main": "./lib/actions/Devices_ListMetricDefinition.js",
+            "title": "Gets the metric definitions for the specified device.",
+            "description": "Gets the metric definitions for the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ListMetricDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_GetNetworkSettings": {
+            "main": "./lib/actions/DeviceSettings_GetNetworkSettings.js",
+            "title": "Gets the network settings of the specified device.",
+            "description": "Gets the network settings of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_GetNetworkSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_UpdateNetworkSettings": {
+            "main": "./lib/actions/DeviceSettings_UpdateNetworkSettings.js",
+            "title": "Updates the network settings on the specified device.",
+            "description": "Updates the network settings on the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_UpdateNetworkSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_GetDevicePublicEncryptionKey": {
+            "main": "./lib/actions/Managers_GetDevicePublicEncryptionKey.js",
+            "title": "Returns the public encryption key of the device.",
+            "description": "Returns the public encryption key of the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_GetDevicePublicEncryptionKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ScanForUpdates": {
+            "main": "./lib/actions/Devices_ScanForUpdates.js",
+            "title": "Scans for updates on the device.",
+            "description": "Scans for updates on the device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ScanForUpdates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_GetSecuritySettings": {
+            "main": "./lib/actions/DeviceSettings_GetSecuritySettings.js",
+            "title": "Returns the Security properties of the specified device name.",
+            "description": "Returns the Security properties of the specified device name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_GetSecuritySettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_UpdateSecuritySettings": {
+            "main": "./lib/actions/DeviceSettings_UpdateSecuritySettings.js",
+            "title": "Patch Security properties of the specified device name.",
+            "description": "Patch Security properties of the specified device name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_UpdateSecuritySettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_SyncRemotemanagementCertificate": {
+            "main": "./lib/actions/DeviceSettings_SyncRemotemanagementCertificate.js",
+            "title": "sync Remote management Certificate between appliance and Service",
+            "description": "sync Remote management Certificate between appliance and Service",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_SyncRemotemanagementCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Alerts_SendTestEmail": {
+            "main": "./lib/actions/Alerts_SendTestEmail.js",
+            "title": "Sends a test alert email.",
+            "description": "Sends a test alert email.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Alerts_SendTestEmail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_GetTimeSettings": {
+            "main": "./lib/actions/DeviceSettings_GetTimeSettings.js",
+            "title": "Gets the time settings of the specified device.",
+            "description": "Gets the time settings of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_GetTimeSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeviceSettings_CreateOrUpdateTimeSettings": {
+            "main": "./lib/actions/DeviceSettings_CreateOrUpdateTimeSettings.js",
+            "title": "Creates or updates the time settings of the specified device.",
+            "description": "Creates or updates the time settings of the specified device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeviceSettings_CreateOrUpdateTimeSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_GetUpdateSummary": {
+            "main": "./lib/actions/Devices_GetUpdateSummary.js",
+            "title": "Returns the update summary of the specified device name.",
+            "description": "Returns the update summary of the specified device name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_GetUpdateSummary.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_ListByDevice": {
+            "main": "./lib/actions/VolumeContainers_ListByDevice.js",
+            "title": "Gets all the volume containers in a device.",
+            "description": "Gets all the volume containers in a device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_Delete": {
+            "main": "./lib/actions/VolumeContainers_Delete.js",
+            "title": "Deletes the volume container.",
+            "description": "Deletes the volume container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_Get": {
+            "main": "./lib/actions/VolumeContainers_Get.js",
+            "title": "Gets the properties of the specified volume container name.",
+            "description": "Gets the properties of the specified volume container name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_CreateOrUpdate": {
+            "main": "./lib/actions/VolumeContainers_CreateOrUpdate.js",
+            "title": "Creates or updates the volume container.",
+            "description": "Creates or updates the volume container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_ListMetrics": {
+            "main": "./lib/actions/VolumeContainers_ListMetrics.js",
+            "title": "Gets the metrics for the specified volume container.",
+            "description": "Gets the metrics for the specified volume container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_ListMetrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VolumeContainers_ListMetricDefinition": {
+            "main": "./lib/actions/VolumeContainers_ListMetricDefinition.js",
+            "title": "Gets the metric definitions for the specified volume container.",
+            "description": "Gets the metric definitions for the specified volume container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VolumeContainers_ListMetricDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_ListByVolumeContainer": {
+            "main": "./lib/actions/Volumes_ListByVolumeContainer.js",
+            "title": "Retrieves all the volumes in a volume container.",
+            "description": "Retrieves all the volumes in a volume container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_ListByVolumeContainer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_Delete": {
+            "main": "./lib/actions/Volumes_Delete.js",
+            "title": "Deletes the volume.",
+            "description": "Deletes the volume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_Get": {
+            "main": "./lib/actions/Volumes_Get.js",
+            "title": "Returns the properties of the specified volume name.",
+            "description": "Returns the properties of the specified volume name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_CreateOrUpdate": {
+            "main": "./lib/actions/Volumes_CreateOrUpdate.js",
+            "title": "Creates or updates the volume.",
+            "description": "Creates or updates the volume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_ListMetrics": {
+            "main": "./lib/actions/Volumes_ListMetrics.js",
+            "title": "Gets the metrics for the specified volume.",
+            "description": "Gets the metrics for the specified volume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_ListMetrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_ListMetricDefinition": {
+            "main": "./lib/actions/Volumes_ListMetricDefinition.js",
+            "title": "Gets the metric definitions for the specified volume.",
+            "description": "Gets the metric definitions for the specified volume.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_ListMetricDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Volumes_ListByDevice": {
+            "main": "./lib/actions/Volumes_ListByDevice.js",
+            "title": "Retrieves all the volumes in a device.",
+            "description": "Retrieves all the volumes in a device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Volumes_ListByDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_Failover": {
+            "main": "./lib/actions/Devices_Failover.js",
+            "title": "Failovers a set of volume containers from a specified source device to a target device.",
+            "description": "Failovers a set of volume containers from a specified source device to a target device.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_Failover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Devices_ListFailoverTargets": {
+            "main": "./lib/actions/Devices_ListFailoverTargets.js",
+            "title": "Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.",
+            "description": "Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Devices_ListFailoverTargets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_GetEncryptionSettings": {
+            "main": "./lib/actions/Managers_GetEncryptionSettings.js",
+            "title": "Returns the encryption settings of the manager.",
+            "description": "Returns the encryption settings of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_GetEncryptionSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_DeleteExtendedInfo": {
+            "main": "./lib/actions/Managers_DeleteExtendedInfo.js",
+            "title": "Deletes the extended info of the manager.",
+            "description": "Deletes the extended info of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_DeleteExtendedInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_GetExtendedInfo": {
+            "main": "./lib/actions/Managers_GetExtendedInfo.js",
+            "title": "Returns the extended information of the specified manager name.",
+            "description": "Returns the extended information of the specified manager name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_GetExtendedInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_UpdateExtendedInfo": {
+            "main": "./lib/actions/Managers_UpdateExtendedInfo.js",
+            "title": "Updates the extended info of the manager.",
+            "description": "Updates the extended info of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_UpdateExtendedInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_CreateExtendedInfo": {
+            "main": "./lib/actions/Managers_CreateExtendedInfo.js",
+            "title": "Creates the extended info of the manager.",
+            "description": "Creates the extended info of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_CreateExtendedInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_ListFeatureSupportStatus": {
+            "main": "./lib/actions/Managers_ListFeatureSupportStatus.js",
+            "title": "Lists the features and their support status",
+            "description": "Lists the features and their support status",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_ListFeatureSupportStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Jobs_ListByManager": {
+            "main": "./lib/actions/Jobs_ListByManager.js",
+            "title": "Gets all the jobs for the specified manager. With optional OData query parameters, a filtered set of jobs is returned.",
+            "description": "Gets all the jobs for the specified manager. With optional OData query parameters, a filtered set of jobs is returned.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Jobs_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_GetActivationKey": {
+            "main": "./lib/actions/Managers_GetActivationKey.js",
+            "title": "Returns the activation key of the manager.",
+            "description": "Returns the activation key of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_GetActivationKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_GetPublicEncryptionKey": {
+            "main": "./lib/actions/Managers_GetPublicEncryptionKey.js",
+            "title": "Returns the symmetric encrypted public encryption key of the manager.",
+            "description": "Returns the symmetric encrypted public encryption key of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_GetPublicEncryptionKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_ListMetrics": {
+            "main": "./lib/actions/Managers_ListMetrics.js",
+            "title": "Gets the metrics for the specified manager.",
+            "description": "Gets the metrics for the specified manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_ListMetrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_ListMetricDefinition": {
+            "main": "./lib/actions/Managers_ListMetricDefinition.js",
+            "title": "Gets the metric definitions for the specified manager.",
+            "description": "Gets the metric definitions for the specified manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_ListMetricDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudAppliances_Provision": {
+            "main": "./lib/actions/CloudAppliances_Provision.js",
+            "title": "Provisions cloud appliance.",
+            "description": "Provisions cloud appliance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudAppliances_Provision.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Managers_RegenerateActivationKey": {
+            "main": "./lib/actions/Managers_RegenerateActivationKey.js",
+            "title": "Re-generates and returns the activation key of the manager.",
+            "description": "Re-generates and returns the activation key of the manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Managers_RegenerateActivationKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccountCredentials_ListByManager": {
+            "main": "./lib/actions/StorageAccountCredentials_ListByManager.js",
+            "title": "Gets all the storage account credentials in a manager.",
+            "description": "Gets all the storage account credentials in a manager.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccountCredentials_ListByManager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccountCredentials_Delete": {
+            "main": "./lib/actions/StorageAccountCredentials_Delete.js",
+            "title": "Deletes the storage account credential.",
+            "description": "Deletes the storage account credential.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccountCredentials_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccountCredentials_Get": {
+            "main": "./lib/actions/StorageAccountCredentials_Get.js",
+            "title": "Gets the properties of the specified storage account credential name.",
+            "description": "Gets the properties of the specified storage account credential name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccountCredentials_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageAccountCredentials_CreateOrUpdate": {
+            "main": "./lib/actions/StorageAccountCredentials_CreateOrUpdate.js",
+            "title": "Creates or updates the storage account credential.",
+            "description": "Creates or updates the storage account credential.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageAccountCredentials_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

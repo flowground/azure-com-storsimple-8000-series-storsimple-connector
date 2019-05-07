@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "description": "The cloud appliance.",
+            "properties": {
+                "isVnetDnsConfigured": {
+                    "description": "Indicates whether virtual network used is configured with DNS or not.",
+                    "type": "boolean"
+                },
+                "isVnetExpressConfigured": {
+                    "description": "Indicates whether virtual network used is configured with express route or not.",
+                    "type": "boolean"
+                },
+                "modelNumber": {
+                    "description": "The model number.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name.",
+                    "type": "string"
+                },
+                "storageAccountName": {
+                    "description": "The name of the storage account.",
+                    "type": "string"
+                },
+                "storageAccountType": {
+                    "description": "The type of the storage account.",
+                    "type": "string"
+                },
+                "subnetName": {
+                    "description": "The name of the subnet.",
+                    "type": "string"
+                },
+                "vmImageName": {
+                    "description": "The name of the virtual machine image.",
+                    "type": "string"
+                },
+                "vmType": {
+                    "description": "The type of the virtual machine.",
+                    "type": "string"
+                },
+                "vnetName": {
+                    "description": "The name of the virtual network.",
+                    "type": "string"
+                },
+                "vnetRegion": {
+                    "description": "The virtual network region.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "vnetRegion"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

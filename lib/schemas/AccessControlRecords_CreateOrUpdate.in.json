@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties": {
+        "accessControlRecordName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The access control record.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of access control record.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "initiatorName": {
+                            "description": "The iSCSI initiator name (IQN).",
+                            "type": "string"
+                        },
+                        "volumeCount": {
+                            "description": "The number of volumes using the access control record.",
+                            "format": "int32",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "initiatorName"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

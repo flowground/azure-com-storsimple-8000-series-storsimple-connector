@@ -1,0 +1,214 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "description": "Represents the patch request for the network settings of a device.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the network settings patch.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "dnsSettings": {
+                            "description": "The DNS (Domain Name System) settings of device.",
+                            "properties": {
+                                "primaryDnsServer": {
+                                    "description": "The primary IPv4 DNS server for the device",
+                                    "type": "string"
+                                },
+                                "primaryIpv6DnsServer": {
+                                    "description": "The primary IPv6 DNS server for the device",
+                                    "type": "string"
+                                },
+                                "secondaryDnsServers": {
+                                    "description": "The secondary IPv4 DNS server for the device",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "secondaryIpv6DnsServers": {
+                                    "description": "The secondary IPv6 DNS server for the device",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "networkAdapters": {
+                            "description": "The network adapter list of device.",
+                            "properties": {
+                                "value": {
+                                    "description": "The value.",
+                                    "items": {
+                                        "description": "Represents the network adapter on device.",
+                                        "properties": {
+                                            "interfaceId": {
+                                                "description": "The ID of the network adapter.",
+                                                "enum": [
+                                                    "Invalid",
+                                                    "Data0",
+                                                    "Data1",
+                                                    "Data2",
+                                                    "Data3",
+                                                    "Data4",
+                                                    "Data5"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "NetInterfaceId"
+                                                }
+                                            },
+                                            "isDefault": {
+                                                "description": "Value indicating whether this instance is default.",
+                                                "type": "boolean"
+                                            },
+                                            "iscsiAndCloudStatus": {
+                                                "description": "Value indicating cloud and ISCSI status of network adapter.",
+                                                "enum": [
+                                                    "Disabled",
+                                                    "IscsiEnabled",
+                                                    "CloudEnabled",
+                                                    "IscsiAndCloudEnabled"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "ISCSIAndCloudStatus"
+                                                }
+                                            },
+                                            "mode": {
+                                                "description": "The mode of network adapter, either IPv4, IPv6 or both.",
+                                                "enum": [
+                                                    "Invalid",
+                                                    "IPV4",
+                                                    "IPV6",
+                                                    "BOTH"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "NetworkMode"
+                                                }
+                                            },
+                                            "netInterfaceStatus": {
+                                                "description": "Value indicating status of network adapter.",
+                                                "enum": [
+                                                    "Enabled",
+                                                    "Disabled"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "NetInterfaceStatus"
+                                                }
+                                            },
+                                            "nicIpv4Settings": {
+                                                "description": "The IPv4 configuration of the network adapter.",
+                                                "properties": {
+                                                    "controller0Ipv4Address": {
+                                                        "description": "The IPv4 address of Controller0.",
+                                                        "type": "string"
+                                                    },
+                                                    "controller1Ipv4Address": {
+                                                        "description": "The IPv4 address of Controller1.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv4Address": {
+                                                        "description": "The IPv4 address of the network adapter.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv4Gateway": {
+                                                        "description": "The IPv4 gateway of the network adapter.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv4Netmask": {
+                                                        "description": "The IPv4 netmask of the network adapter.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "nicIpv6Settings": {
+                                                "description": "The IPv6 configuration of the network adapter.",
+                                                "properties": {
+                                                    "controller0Ipv6Address": {
+                                                        "description": "The IPv6 address of Controller0.",
+                                                        "type": "string"
+                                                    },
+                                                    "controller1Ipv6Address": {
+                                                        "description": "The IPv6 address of Controller1.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv6Address": {
+                                                        "description": "The IPv6 address of the network adapter.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv6Gateway": {
+                                                        "description": "The IPv6 gateway of the network adapter.",
+                                                        "type": "string"
+                                                    },
+                                                    "ipv6Prefix": {
+                                                        "description": "The IPv6 prefix of the network adapter.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "speed": {
+                                                "description": "The speed of the network adapter.",
+                                                "format": "int64",
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "interfaceId",
+                                            "netInterfaceStatus",
+                                            "iscsiAndCloudStatus",
+                                            "mode"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

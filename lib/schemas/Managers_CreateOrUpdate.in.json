@@ -1,0 +1,123 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "The Azure Resource.",
+                    "properties": {
+                        "id": {
+                            "description": "The resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "The geo location of the resource.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "The tags attached to the resource.",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "The resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "The StorSimple Manager.",
+            "properties": {
+                "etag": {
+                    "description": "The etag of the manager.",
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "The properties of the StorSimple Manager.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "cisIntrinsicSettings": {
+                            "description": "Represents the type of StorSimple Manager.",
+                            "properties": {
+                                "type": {
+                                    "description": "The type of StorSimple Manager.",
+                                    "enum": [
+                                        "GardaV1",
+                                        "HelsinkiV1"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "ManagerType"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "type"
+                            ],
+                            "type": "object"
+                        },
+                        "provisioningState": {
+                            "description": "Specifies the state of the resource as it is getting provisioned. Value of \"Succeeded\" means the Manager was successfully created.",
+                            "type": "string"
+                        },
+                        "sku": {
+                            "description": "Specifies the Sku.",
+                            "properties": {
+                                "name": {
+                                    "description": "Refers to the sku name which should be \"Standard\"",
+                                    "enum": [
+                                        "Standard"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "ManagerSkuType"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

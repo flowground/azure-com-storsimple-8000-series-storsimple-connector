@@ -1,0 +1,166 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "volumeContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The volume container.",
+            "properties": {
+                "properties": {
+                    "description": "The volume container properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "bandWidthRateInMbps": {
+                            "description": "The bandwidth-rate set on the volume container.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "bandwidthSettingId": {
+                            "description": "The ID of the bandwidth setting associated with the volume container.",
+                            "type": "string"
+                        },
+                        "encryptionKey": {
+                            "description": "The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is \"Enabled\".",
+                            "properties": {
+                                "encryptionAlgorithm": {
+                                    "description": "The algorithm used to encrypt \"Value\".",
+                                    "enum": [
+                                        "None",
+                                        "AES256",
+                                        "RSAES_PKCS1_v_1_5"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "EncryptionAlgorithm"
+                                    }
+                                },
+                                "encryptionCertThumbprint": {
+                                    "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "The value of the secret.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "encryptionAlgorithm"
+                            ],
+                            "type": "object"
+                        },
+                        "encryptionStatus": {
+                            "description": "The flag to denote whether encryption is enabled or not.",
+                            "enum": [
+                                "Enabled",
+                                "Disabled"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "EncryptionStatus"
+                            }
+                        },
+                        "ownerShipStatus": {
+                            "description": "The owner ship status of the volume container. Only when the status is \"NotOwned\", the delete operation on the volume container is permitted.",
+                            "enum": [
+                                "Owned",
+                                "NotOwned"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "OwnerShipStatus"
+                            }
+                        },
+                        "storageAccountCredentialId": {
+                            "description": "The path ID of storage account associated with the volume container.",
+                            "type": "string"
+                        },
+                        "totalCloudStorageUsageInBytes": {
+                            "description": "The total cloud storage for the volume container.",
+                            "format": "int64",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "volumeCount": {
+                            "description": "The number of volumes in the volume Container.",
+                            "format": "int32",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "storageAccountCredentialId"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,140 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "backupPolicyName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The backup policy.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the backup policy.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "backupPolicyCreationType": {
+                            "description": "The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.",
+                            "enum": [
+                                "BySaaS",
+                                "BySSM"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "BackupPolicyCreationType"
+                            }
+                        },
+                        "lastBackupTime": {
+                            "description": "The time of the last backup for the backup policy.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "nextBackupTime": {
+                            "description": "The time of the next backup for the backup policy.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "scheduledBackupStatus": {
+                            "description": "Indicates whether at least one of the schedules in the backup policy is active or not.",
+                            "enum": [
+                                "Disabled",
+                                "Enabled"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ScheduledBackupStatus"
+                            }
+                        },
+                        "schedulesCount": {
+                            "description": "The count of schedules the backup policy contains.",
+                            "format": "int64",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "ssmHostName": {
+                            "description": "If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "volumeIds": {
+                            "description": "The path IDs of the volumes which are part of the backup policy.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "volumeIds"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

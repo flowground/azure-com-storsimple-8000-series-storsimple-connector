@@ -1,0 +1,182 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "volumeContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "volumeName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Represents the base class for all other ARM object models",
+                    "properties": {
+                        "id": {
+                            "description": "The path ID that uniquely identifies the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The Kind of the object. Currently only Series8000 is supported",
+                            "enum": [
+                                "Series8000"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "Kind"
+                            }
+                        },
+                        "name": {
+                            "description": "The name of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The hierarchical type of the object.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ],
+            "description": "The volume.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the volume.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "accessControlRecordIds": {
+                            "description": "The IDs of the access control records, associated with the volume.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "backupPolicyIds": {
+                            "description": "The IDs of the backup policies, in which this volume is part of.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                        },
+                        "backupStatus": {
+                            "description": "The backup status of the volume.",
+                            "enum": [
+                                "Enabled",
+                                "Disabled"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "BackupStatus"
+                            }
+                        },
+                        "monitoringStatus": {
+                            "description": "The monitoring status of the volume.",
+                            "enum": [
+                                "Enabled",
+                                "Disabled"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "MonitoringStatus"
+                            }
+                        },
+                        "operationStatus": {
+                            "description": "The operation status on the volume.",
+                            "enum": [
+                                "None",
+                                "Updating",
+                                "Deleting",
+                                "Restoring"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "OperationStatus"
+                            }
+                        },
+                        "sizeInBytes": {
+                            "description": "The size of the volume in bytes.",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "volumeContainerId": {
+                            "description": "The ID of the volume container, in which this volume is created.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "volumeStatus": {
+                            "description": "The volume status.",
+                            "enum": [
+                                "Online",
+                                "Offline"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "VolumeStatus"
+                            }
+                        },
+                        "volumeType": {
+                            "description": "The type of the volume.",
+                            "enum": [
+                                "Tiered",
+                                "Archival",
+                                "LocallyPinned"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "VolumeType"
+                            }
+                        }
+                    },
+                    "required": [
+                        "sizeInBytes",
+                        "volumeType",
+                        "accessControlRecordIds",
+                        "volumeStatus",
+                        "monitoringStatus"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

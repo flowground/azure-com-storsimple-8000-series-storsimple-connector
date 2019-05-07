@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "description": "The request for clearing the alert",
+            "properties": {
+                "alerts": {
+                    "description": "The list of alert IDs to be cleared",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "resolutionMessage": {
+                    "description": "The resolution message while clearing the alert",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "alerts"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

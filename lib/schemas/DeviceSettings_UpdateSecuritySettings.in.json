@@ -1,0 +1,272 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "description": "Represents the patch request for the security settings of a device.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the security settings patch.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "chapSettings": {
+                            "description": "The device CHAP and reverse-CHAP settings.",
+                            "properties": {
+                                "initiatorSecret": {
+                                    "description": "The CHAP initiator secret.",
+                                    "properties": {
+                                        "encryptionAlgorithm": {
+                                            "description": "The algorithm used to encrypt \"Value\".",
+                                            "enum": [
+                                                "None",
+                                                "AES256",
+                                                "RSAES_PKCS1_v_1_5"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "EncryptionAlgorithm"
+                                            }
+                                        },
+                                        "encryptionCertThumbprint": {
+                                            "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The value of the secret.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "value",
+                                        "encryptionAlgorithm"
+                                    ],
+                                    "type": "object"
+                                },
+                                "initiatorUser": {
+                                    "description": "The CHAP initiator user.",
+                                    "type": "string"
+                                },
+                                "targetSecret": {
+                                    "description": "The target secret.",
+                                    "properties": {
+                                        "encryptionAlgorithm": {
+                                            "description": "The algorithm used to encrypt \"Value\".",
+                                            "enum": [
+                                                "None",
+                                                "AES256",
+                                                "RSAES_PKCS1_v_1_5"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "EncryptionAlgorithm"
+                                            }
+                                        },
+                                        "encryptionCertThumbprint": {
+                                            "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The value of the secret.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "value",
+                                        "encryptionAlgorithm"
+                                    ],
+                                    "type": "object"
+                                },
+                                "targetUser": {
+                                    "description": "The CHAP target user.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "cloudApplianceSettings": {
+                            "description": "The cloud appliance settings.",
+                            "properties": {
+                                "channelIntegrityKey": {
+                                    "description": "The channel integrity key (encrypted with DAK).",
+                                    "properties": {
+                                        "encryptionAlgorithm": {
+                                            "description": "The algorithm used to encrypt \"Value\".",
+                                            "enum": [
+                                                "None",
+                                                "AES256",
+                                                "RSAES_PKCS1_v_1_5"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "EncryptionAlgorithm"
+                                            }
+                                        },
+                                        "encryptionCertThumbprint": {
+                                            "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The value of the secret.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "value",
+                                        "encryptionAlgorithm"
+                                    ],
+                                    "type": "object"
+                                },
+                                "serviceDataEncryptionKey": {
+                                    "description": "The service data encryption key (encrypted with DAK).",
+                                    "properties": {
+                                        "encryptionAlgorithm": {
+                                            "description": "The algorithm used to encrypt \"Value\".",
+                                            "enum": [
+                                                "None",
+                                                "AES256",
+                                                "RSAES_PKCS1_v_1_5"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "EncryptionAlgorithm"
+                                            }
+                                        },
+                                        "encryptionCertThumbprint": {
+                                            "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "The value of the secret.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "value",
+                                        "encryptionAlgorithm"
+                                    ],
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "deviceAdminPassword": {
+                            "description": "The device administrator password.",
+                            "properties": {
+                                "encryptionAlgorithm": {
+                                    "description": "The algorithm used to encrypt \"Value\".",
+                                    "enum": [
+                                        "None",
+                                        "AES256",
+                                        "RSAES_PKCS1_v_1_5"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "EncryptionAlgorithm"
+                                    }
+                                },
+                                "encryptionCertThumbprint": {
+                                    "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "The value of the secret.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "encryptionAlgorithm"
+                            ],
+                            "type": "object"
+                        },
+                        "remoteManagementSettings": {
+                            "description": "The remote management settings.",
+                            "properties": {
+                                "remoteManagementMode": {
+                                    "description": "The remote management mode.",
+                                    "enum": [
+                                        "Unknown",
+                                        "Disabled",
+                                        "HttpsEnabled",
+                                        "HttpsAndHttpEnabled"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "RemoteManagementModeConfiguration"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "remoteManagementMode"
+                            ],
+                            "type": "object"
+                        },
+                        "snapshotPassword": {
+                            "description": "The snapshot manager password.",
+                            "properties": {
+                                "encryptionAlgorithm": {
+                                    "description": "The algorithm used to encrypt \"Value\".",
+                                    "enum": [
+                                        "None",
+                                        "AES256",
+                                        "RSAES_PKCS1_v_1_5"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": false,
+                                        "name": "EncryptionAlgorithm"
+                                    }
+                                },
+                                "encryptionCertThumbprint": {
+                                    "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "The value of the secret.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "value",
+                                "encryptionAlgorithm"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_filter": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

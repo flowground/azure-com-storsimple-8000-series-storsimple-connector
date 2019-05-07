@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "deviceName": {
+            "required": true,
+            "type": "string"
+        },
+        "backupName": {
+            "required": true,
+            "type": "string"
+        },
+        "backupElementName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "managerName": {
+            "required": true,
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "requestBody": {
+            "description": "The clone job request.",
+            "properties": {
+                "backupElement": {
+                    "description": "The backup element that is cloned.",
+                    "properties": {
+                        "elementId": {
+                            "description": "The path ID that uniquely identifies the backup element.",
+                            "type": "string"
+                        },
+                        "elementName": {
+                            "description": "The name of the backup element.",
+                            "type": "string"
+                        },
+                        "elementType": {
+                            "description": "The hierarchical type of the backup element.",
+                            "type": "string"
+                        },
+                        "sizeInBytes": {
+                            "description": "The size in bytes.",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "volumeContainerId": {
+                            "description": "The path ID of the volume container.",
+                            "type": "string"
+                        },
+                        "volumeName": {
+                            "description": "The name of the volume.",
+                            "type": "string"
+                        },
+                        "volumeType": {
+                            "description": "The volume type.",
+                            "enum": [
+                                "Tiered",
+                                "Archival",
+                                "LocallyPinned"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "VolumeType"
+                            }
+                        }
+                    },
+                    "required": [
+                        "elementId",
+                        "elementName",
+                        "elementType",
+                        "sizeInBytes",
+                        "volumeName",
+                        "volumeContainerId"
+                    ],
+                    "type": "object"
+                },
+                "targetAccessControlRecordIds": {
+                    "description": "The list of path IDs of the access control records to be associated to the new cloned volume.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetDeviceId": {
+                    "description": "The path ID of the device which will act as the clone target.",
+                    "type": "string"
+                },
+                "targetVolumeName": {
+                    "description": "The name of the new volume which will be created and the backup will be cloned into.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "targetDeviceId",
+                "targetVolumeName",
+                "targetAccessControlRecordIds",
+                "backupElement"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
